@@ -9,8 +9,22 @@ def passwordRules():
 passwordRules()
 
 def messageOutput(message_str):
-    print(message_str);
+    passwordRules()
+    user_password = input(message_str)
+    return user_password
+
 
 user_password = input("Please enter a password to login...  ")
-if len(user_password) < 5:
-    user_password = ("Please enter a valid password with minimum of 5 characters")
+regexPass = r"(\w_+|\W+|\S+){1,10}"
+
+failed = True
+while failed:
+    if (re.match(regexPass, user_password)):
+        print("Password " + user_password + "\nTest: True")
+        failed = False
+
+    else:
+        message_str = "Please enter a valid password... "
+        user_password = messageOutput(message_str)
+        
+
