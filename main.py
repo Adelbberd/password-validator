@@ -15,7 +15,7 @@ def messageOutput(message_str):
 
 
 user_password = input("Please enter a password to login...  ")
-regexPass = r"(\w_+|\W+|\S+){1,10}"
+regexPass = r"(?=.*[0-9]+)(?=.*[a-zA-Z]+)(?!.*\s+)(?=.*\W+)[\w+\W+\S+]{5,}"
 
 failed = True
 while failed:
